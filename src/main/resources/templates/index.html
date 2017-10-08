@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html ng-app="appCarrinho">
+
+<head>
+	<base href="/"  />
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <meta name="description" content="Carrinho de Compras"></meta>
+    <meta name="author" content="Elisson Francisco da Silva"></meta>
+    <meta name="keyword" content="Carrinho, Compras"></meta>
+
+    <title>Carrinho de Compras</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/i18n/angular-locale_pt-br.js"></script>
+	<script src="./js/app.js"></script>
+	<script src="./js/controller/produtos-controller.js"></script>
+	<script src="./js/controller/carrinho-controller.js"></script>
+    <script src="./js/resources/jquery-1.11.0.min.js"></script>
+    <script src="./js/resources/bootstrap.min.js"></script>
+    <script src="./js/resources/jquery.cookie.js"></script>
+    <script src="./js/resources/waypoints.min.js"></script>
+    <script src="./js/resources/modernizr.js"></script>
+    <script src="./js/resources/bootstrap-hover-dropdown.js"></script>
+    <script src="./js/resources/owl.carousel.min.js"></script>
+    <script src="./js/resources/front.js"></script>
+
+    <meta name="keywords" content=""></meta>
+
+    <!-- styles -->
+    <link href="./css/font-awesome.css" rel="stylesheet"></link>	
+    <link href="./css/bootstrap.min.css" rel="stylesheet"></link>	
+    <link href="./css/animate.min.css" rel="stylesheet"></link>	
+    <link href="./css/owl.carousel.css" rel="stylesheet"></link>	
+    <link href="./css/owl.theme.css" rel="stylesheet"></link>	
+
+    <!-- theme stylesheet -->
+    <link href="./css/style.default.css" rel="stylesheet" id="theme-stylesheet"></link>	
+
+    <!-- your stylesheet with modifications -->
+    <link href="./css/custom.css" rel="stylesheet"></link>	
+
+    <script src="./js/resources/respond.min.js"></script>
+
+    <link rel="./shortcut icon" href="img/favicon.png"></link>	
+
+
+
+</head>
+
+<body>
+
+    <!-- *** NAVBAR ***
+ _________________________________________________________ -->
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand home" href="/" data-animate-hover="bounce">
+                    <img src="img/logo.png" alt="Obaju logo" class="hidden-xs"></img>
+                    <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Carrinho de Compras</span></img>
+                </a>
+                <div class="navbar-buttons">
+                    
+                    <a class="btn btn-default navbar-toggle" href="/#/carrinho">
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">Carrinho</span>
+                    </a>
+                </div>
+            </div>
+            <!--/.navbar-header -->
+
+            <div class="navbar-collapse collapse" id="navigation">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li ng-class="{active:hovering1}" ng-mouseenter="hovering1=true" ng-mouseleave="hovering1=false"><a href="/">Home</a>
+                    </li>
+                    <li ng-class="{active:hovering2}" ng-mouseenter="hovering2=true" ng-mouseleave="hovering2=false"><a href="/#/produtos">Produtos</a>
+                    </li>
+					<li ng-class="{active:hovering3}" ng-mouseenter="hovering3=true" ng-mouseleave="hovering3=false"><a href="/#/contato">Contato</a>
+                    </li>
+                    
+                        
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+
+            <div class="navbar-buttons">
+
+                <div class="navbar-collapse collapse right" id="basket-overview">
+                    <a href="/#/carrinho" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">Carrinho</span></a>
+                </div>
+                <!--/.nav-collapse -->
+
+                <div class="navbar-collapse collapse right" id="search-not-mobile">
+                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search"></input>
+                        <span class="input-group-btn">
+
+						<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+			
+					    </span>
+                    </div>
+                </form>
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#navbar -->
+
+    
+    <div id="all">
+		<div id="content">
+		    <div ng-view = "ng-view" class="padding-left-right">
+		
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

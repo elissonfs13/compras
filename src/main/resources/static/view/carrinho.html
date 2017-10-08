@@ -1,0 +1,80 @@
+<div id="content" ng-init="getCarrinho()">
+    <div class="container">
+
+        <div class="col-md-12">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a>
+                </li>
+                <li>Carrinho</li>
+            </ul>
+        </div>
+
+        <div class="col-md-12" id="basket">
+
+            <div class="box">
+
+                <form method="post" action="/#/resultado">
+
+                    <h1>Carrinho de Compras</h1>
+                    <p class="text-muted">Você possui {{qtdItens}} produto(s) em seu carrinho.</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Produto</th>
+                                    <th>Quantidade</th>
+                                    <th>Preço Unitário</th>
+                                    <th colspan="2">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="pedido in carrinho.itemPedido">
+                                    <td>
+                                        <a href="#">
+                                            <img src="img/produtos/{{pedido.produto.imagem}}" alt="White Blouse Armani">
+                                        </a>
+                                    </td>
+                                    <td><a href="#">{{pedido.produto.nome}}</a>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="1" class="form-control" ng-model="pedido.quantidade" ng-change="alterarItem(pedido)">
+                                    </td>
+                                    <td>{{pedido.produto.valor | currency:'R$ ':2}}</td>
+                                    <td>{{pedido.precoItem | currency:'R$ ':2}}</td>
+                                    <td><a href="#" ng-click="removerItem(pedido.id)"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="5">Total</th>
+                                    <th colspan="2">{{carrinho.precoTotal | currency:'R$ ':2}}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <!-- /.table-responsive -->
+
+                    <div class="box-footer">
+                        <div class="pull-left">
+                            <a href="/#/produtos" class="btn btn-default"><i class="fa fa-chevron-left"></i> Ver Produtos</a>
+                        </div>
+                        <div class="pull-right">
+                        	<a ng-click="removerCarrinho(carrinho.id)" class="btn btn-default"><i class="fa fa-refresh"></i> Limpar Carrinho</a>
+                            <button type="submit" class="btn btn-primary">Finalizar Compra <i class="fa fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <!-- /.box -->
+
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+</div>

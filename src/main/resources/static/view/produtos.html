@@ -1,0 +1,53 @@
+<div id="content" ng-init="listarProdutos()">
+    <div class="container">
+
+        <div class="col-md-12">
+
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a>
+                </li>
+                <li>Produtos</li>
+            </ul>
+
+            <div class="row products">
+
+                <div class="col-md-3 col-sm-4" ng-repeat="produto in produtos">
+                    <div class="product" >
+                        <div class="flip-container">
+                            <div class="flipper">
+                                <div class="front">
+                                    <a href="detail.html">
+                                        <img src="img/produtos/{{produto.imagem}}" alt="" class="img-responsive"></img>
+                                    </a>
+                                </div>
+                                <div class="back">
+                                    <a href="detail.html">
+                                        <img src="img/produtos/{{produto.imagem}}" alt="" class="img-responsive"></img>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="detail.html" class="invisible">
+                            <img src="img/produtos/{{produto.imagem}}" alt="" class="img-responsive"></img>
+                        </a>
+                        <div class="text">
+                            <h3><a href="detail.html">{{produto.nome}}</a></h3>
+                            <p class="price">{{produto.valor | currency:'R$ ':2}}</p>
+                            <p class="buttons">
+                                <a class="btn btn-primary" ng-click="adicionarProduto(produto)"><i class="fa fa-shopping-cart"></i>Add ao Carrinho</a>
+                            </p>
+                        </div>
+                        <!-- /.text -->
+                    </div>
+                    <!-- /.product -->
+                </div>
+
+            </div>
+            <!-- /.products -->
+
+        </div>
+        <!-- /.col-md-9 -->
+
+    </div>
+    <!-- /.container -->
+</div>
